@@ -3,12 +3,12 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import cn from 'classnames';
 
-import dates from './utils/dates';
-import { segStyle } from './utils/eventLevels';
-import { notify } from './utils/helpers';
-import { elementType } from './utils/propTypes';
-import { dateCellSelection, slotWidth, getCellAtX, pointInBox } from './utils/selection';
-import Selection, { getBoundsForNode, isEvent } from './Selection';
+import dates from '../utils/dates';
+import { segStyle } from '../utils/eventLevels';
+import { notify } from '../utils/helpers';
+import { elementType } from '../utils/propTypes';
+import { dateCellSelection, slotWidth, getCellAtX, pointInBox } from '../utils/selection';
+import Selection, { getBoundsForNode, isEvent } from '../Selection';
 
 class BackgroundCells extends React.Component {
 
@@ -38,7 +38,7 @@ class BackgroundCells extends React.Component {
 
   componentDidMount(){
     this.props.selectable
-      && this._selectable()
+      && this._selectable();
   }
 
   componentWillUnmount() {
@@ -76,15 +76,15 @@ class BackgroundCells extends React.Component {
                 )}
               />
             </Wrapper>
-          )
+          );
         })}
       </div>
-    )
+    );
   }
 
   _selectable(){
     let node = findDOMNode(this);
-    let selector = this._selector = new Selection(this.props.container)
+    let selector = this._selector = new Selection(this.props.container);
 
     selector.on('selecting', box => {
       let { range, rtl } = this.props;
@@ -110,19 +110,19 @@ class BackgroundCells extends React.Component {
       this.setState({
         selecting: true,
         startIdx, endIdx
-      })
-    })
+      });
+    });
 
     selector.on('mousedown', (box) => {
-      if (this.props.selectable !== 'ignoreEvents') return
+      if (this.props.selectable !== 'ignoreEvents') return;
 
-      return !isEvent(findDOMNode(this), box)
-    })
+      return !isEvent(findDOMNode(this), box);
+    });
 
     selector
       .on('click', point => {
         if (!isEvent(findDOMNode(this), point)) {
-          let rowBox = getBoundsForNode(node)
+          let rowBox = getBoundsForNode(node);
           let { range, rtl } = this.props;
 
           if (pointInBox(rowBox, point)) {
@@ -133,25 +133,26 @@ class BackgroundCells extends React.Component {
               startIdx: currentCell,
               endIdx: currentCell,
               action: 'click',
-            })
+            });
           }
         }
 
-        this._initial = {}
-        this.setState({ selecting: false })
-      })
+        this._initial = {};
+        this.setState({ selecting: false });
+      });
 
     selector
       .on('select', () => {
-        this._selectSlot({ ...this.state, action: 'select' })
-        this._initial = {}
-        this.setState({ selecting: false })
+        this._selectSlot({ ...this.state, action: 'select' });
+        this._initial = {};
+        this.setState({ selecting: false });
         notify(this.props.onSelectEnd, [this.state]);
-      })
+      });
   }
 
   _teardownSelectable() {
-    if (!this._selector) return
+    if (!this._selector)
+      return;
     this._selector.teardown();
     this._selector = null;
   }
@@ -163,7 +164,7 @@ class BackgroundCells extends React.Component {
           start: startIdx,
           end: endIdx,
           action
-        })
+        });
   }
 }
 

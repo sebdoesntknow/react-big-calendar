@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 
-import dates from './utils/dates';
-import { accessor, elementType } from './utils/propTypes';
-import { segStyle, eventSegments, endOfRange, eventLevels } from './utils/eventLevels';
-import BackgroundCells from './BackgroundCells';
-import EventRow from './EventRow';
-import EventEndingRow from './EventEndingRow';
+import dates from '../utils/dates';
+import { accessor, elementType } from '../utils/propTypes';
+import { segStyle, eventSegments, endOfRange, eventLevels } from '../utils/eventLevels';
+import BackgroundCells from '../BackgroundCells';
+import EventRow from '../EventRow';
+import EventEndingRow from '../EventEndingRow';
 
 let isSegmentInSlot = (seg, slot) => seg.left <= slot && seg.right >= slot;
 

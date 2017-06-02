@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import EventRowMixin from './EventRowMixin'
+import PropTypes from 'prop-types';
+import React from 'react';
+import EventRowMixin from '../EventRowMixin';
 
 class EventRow extends React.Component {
   static propTypes = {

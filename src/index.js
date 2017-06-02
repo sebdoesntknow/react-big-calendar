@@ -1,27 +1,6 @@
-import Calendar from './Calendar';
-import EventWrapper from './EventWrapper';
-import BackgroundWrapper from './BackgroundWrapper';
-import { set as setLocalizer } from './localizer';
-import momentLocalizer from './localizers/moment';
-import globalizeLocalizer from './localizers/globalize';
-import viewLabel from './utils/viewLabel';
-import move from './utils/move';
-import { views, navigate } from './utils/constants';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-Object.assign(Calendar, {
-  setLocalizer,
-  globalizeLocalizer,
-  momentLocalizer,
-  label: viewLabel,
-  views,
-  Views: views,
-  Navigate: navigate,
-  move,
-  components: {
-    eventWrapper: EventWrapper,
-    dayWrapper: BackgroundWrapper,
-    dateCellWrapper: BackgroundWrapper
-  }
-})
+import App from './App';
 
-export default Calendar
+ReactDOM.render(<App/>, document.querySelector('#root'));

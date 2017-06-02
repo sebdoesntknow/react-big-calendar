@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import dates from './utils/dates';
-import TimeGrid from './TimeGrid';
-import { navigate } from './utils/constants';
+import dates from '../utils/dates';
+import TimeGrid from '../TimeGrid';
+import { navigate } from '../utils/constants';
 
 class Day extends React.Component {
   static propTypes = {

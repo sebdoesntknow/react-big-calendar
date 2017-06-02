@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import cn from 'classnames';
-import dates from './utils/dates';
-import { accessor, elementType } from './utils/propTypes';
-import { accessor as get } from './utils/accessors';
+import dates from '../utils/dates';
+import { accessor, elementType } from '../utils/propTypes';
+import { accessor as get } from '../utils/accessors';
 
 let propTypes = {
   event: PropTypes.object.isRequired,

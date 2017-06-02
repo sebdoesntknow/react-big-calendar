@@ -3,18 +3,18 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import cn from 'classnames';
 
-import Selection, { getBoundsForNode, isEvent } from './Selection';
-import dates from './utils/dates';
-import { isSelected } from './utils/selection';
-import localizer from './localizer'
+import Selection, { getBoundsForNode, isEvent } from '../Selection';
+import dates from '../utils/dates';
+import { isSelected } from '../utils/selection';
+import localizer from '../localizer'
 
-import { notify } from './utils/helpers';
-import { accessor, elementType, dateFormat } from './utils/propTypes';
-import { accessor as get } from './utils/accessors';
+import { notify } from '../utils/helpers';
+import { accessor, elementType, dateFormat } from '../utils/propTypes';
+import { accessor as get } from '../utils/accessors';
 
-import getStyledEvents, { positionFromDate, startsBefore } from './utils/dayViewLayout'
+import getStyledEvents, { positionFromDate, startsBefore } from '../utils/dayViewLayout'
 
-import TimeColumn from './TimeColumn'
+import TimeColumn from '../TimeColumn'
 
 function snapToSlot(date, step){
   var roundTo = 1000 * 60 * step;
